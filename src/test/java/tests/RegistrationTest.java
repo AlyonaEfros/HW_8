@@ -14,49 +14,49 @@ public class RegistrationTest extends TestBase {
     @Test
     void fillFormTest() {
       Faker faker = new Faker();
-        String  UserFirstName = faker.name().firstName(),
-                UserLastName = faker.name().lastName(),
-                UserEmail = faker.internet().emailAddress(),
-                UserGender = getRandomItemFromArray(genders),
-                UserNumber = faker.phoneNumber().subscriberNumber(10),
-                UserBirthDay_day = String.format("%02d", faker.number().numberBetween(1,28)),
-                UserBirthDay_month = getRandomItemFromArray(months),
-                UserBirthDay_year = String.valueOf(faker.number().numberBetween(1990,2000)),
-                UserSubject = getRandomItemFromArray(subjects),
-                UserHobby = getRandomItemFromArray(hobbies),
-                UserPictureLocation = "pictures/cat.jpeg",
-                UserAddress = faker.address().fullAddress(),
-                UserState = "Haryana",
-                UserCity = getRandomItemFromArray(cities);
+        String  userFirstName = faker.name().firstName(),
+                userLastName = faker.name().lastName(),
+                userEmail = faker.internet().emailAddress(),
+                userGender = getRandomItemFromArray(genders),
+                userNumber = faker.phoneNumber().subscriberNumber(10),
+                userBirthDay_day = String.format("%02d", faker.number().numberBetween(1,28)),
+                userBirthDay_month = getRandomItemFromArray(months),
+                userBirthDay_year = String.valueOf(faker.number().numberBetween(1990,2000)),
+                userSubject = getRandomItemFromArray(subjects),
+                userHobby = getRandomItemFromArray(hobbies),
+                userPictureLocation = "cat.jpeg",
+                userAddress = faker.address().fullAddress(),
+                userState = "Haryana",
+                userCity = getRandomItemFromArray(cities);
 
 
         registrationPage.openPage()
                 .removeBanners()
-                .setFirstName(UserFirstName)
-                .setLastName(UserLastName)
-                .setEmail(UserEmail)
-                .setGender(UserGender)
-                .setNumber(UserNumber)
-                .setBirthDate(UserBirthDay_day, UserBirthDay_month, UserBirthDay_year)
-                .setSubject(UserSubject)
-                .setHobby(UserHobby)
-                .setPicture(UserPictureLocation)
-                .setAddress(UserAddress)
-                .setState(UserState)
-                .setCity(UserCity)
+                .setFirstName(userFirstName)
+                .setLastName(userLastName)
+                .setEmail(userEmail)
+                .setGender(userGender)
+                .setNumber(userNumber)
+                .setBirthDate(userBirthDay_day, userBirthDay_month, userBirthDay_year)
+                .setSubject(userSubject)
+                .setHobby(userHobby)
+                .setPicture("pictures/" + userPictureLocation)
+                .setAddress(userAddress)
+                .setState(userState)
+                .setCity(userCity)
                 .submitButtonClick();
 
         registrationResultsModal.verifyModalAppear()
-                .verifyResult("Student Name", UserFirstName + " " + UserLastName)
-                .verifyResult("Student Email", UserEmail)
-                .verifyResult("Gender", UserGender)
-                .verifyResult("Mobile", UserNumber)
-                .verifyResult("Date of Birth", UserBirthDay_day + " " + UserBirthDay_month + "," + UserBirthDay_year)
-                .verifyResult("Subjects", UserSubject)
-                .verifyResult("Hobbies", UserHobby)
-                .verifyResult("Picture", "cat.jpeg")
-                .verifyResult("Address", UserAddress)
-                .verifyResult("State and City", UserState + " " + UserCity);
+                .verifyResult("Student Name", userFirstName + " " + userLastName)
+                .verifyResult("Student Email", userEmail)
+                .verifyResult("Gender", userGender)
+                .verifyResult("Mobile", userNumber)
+                .verifyResult("Date of Birth", userBirthDay_day + " " + userBirthDay_month + "," + userBirthDay_year)
+                .verifyResult("Subjects", userSubject)
+                .verifyResult("Hobbies", userHobby)
+                .verifyResult("Picture", userPictureLocation)
+                .verifyResult("Address", userAddress)
+                .verifyResult("State and City", userState + " " + userCity);
     }
 
 }
