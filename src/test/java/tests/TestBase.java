@@ -7,7 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.Attach;
+import helpers.Attach;
 
 import java.util.Map;
 
@@ -38,7 +38,7 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
+        Attach.screenshotAs();
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
