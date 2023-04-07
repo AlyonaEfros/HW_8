@@ -37,7 +37,7 @@ public class RegistrationTest extends TestBase {
 
 
         registrationPage.openPage()
-                .removeBanners()
+                .bannerRemoval()
                 .setFirstName(userFirstName)
                 .setLastName(userLastName)
                 .setEmail(userEmail)

@@ -25,6 +25,10 @@ public class RegistrationPage {
             stateCityWrapper = $("#stateCity-wrapper"),
             submit = $("#submit");
 
+    private final String FIXED_BAN = "$('#fixedban').remove()";
+    private final String FOOTER = "$('footer').remove()";
+
+
     @Step("Открываем регистрационную форму студента")
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -34,9 +38,9 @@ public class RegistrationPage {
     }
 
     @Step("Убираем баннеры и footer")
-    public RegistrationPage removeBanners() {
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+    public RegistrationPage bannerRemoval() {
+        executeJavaScript(FIXED_BAN);
+        executeJavaScript(FOOTER);
 
         return this;
     }
