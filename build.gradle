@@ -31,7 +31,7 @@ compileTestJava {
 
 dependencies {
     testImplementation (
-            "com.codeborne:selenide:6.12.2",
+            "com.codeborne:selenide:6.13.0",
             "org.junit.jupiter:junit-jupiter:5.9.2",
             "io.qameta.allure:allure-selenide:2.21.0",
             "com.github.javafaker:javafaker:1.0.2"
